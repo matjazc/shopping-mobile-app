@@ -1,14 +1,12 @@
-export const ADD_TO_CART: string = 'ADD_TO_CART'
-export const REMOVE_FROM_CART: string = 'REMOVE_FROM_CART'
-export const SET_TOTAL: string = 'SET_TOTAL'
+import { InitialState, ActionTypes, ADD_TO_CART, REMOVE_FROM_CART, SET_TOTAL } from './types'
 
-const initialState = {
+const initialState: InitialState = {
   totalPrice: 0,
   totalCartItems: 0,
-  cartItems:[]
+  cartItems: []
 }
 
-const reducer = (state = initialState, action: any) => { 
+const reducer = (state = initialState, action: ActionTypes) => { 
   switch (action.type) {
     case ADD_TO_CART:
     case REMOVE_FROM_CART:
