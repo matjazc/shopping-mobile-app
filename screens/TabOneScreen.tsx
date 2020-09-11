@@ -8,7 +8,7 @@ import { Card, Button, Text } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default function TabOneScreen() {
-  const totalCartItems = useSelector((state: RootState)  => state.totalCartItems)
+  const cartItems = useSelector((state: RootState)  => state.totalCartItems)
 
   const dispatch = useDispatch()
   const addItemToCart = (item: IProductItem) => {
@@ -18,7 +18,7 @@ export default function TabOneScreen() {
 
   return (
     <View>
-      <Text style={{color:'#ffffff', fontSize: 20}}># of products in the cart: {totalCartItems}</Text>
+      <Text style={{color:'#ffffff', fontSize: 20}}># of products in the cart: {cartItems}</Text>
       <ScrollView>
       {
         products.map((item: IProductItem, index: number) => {

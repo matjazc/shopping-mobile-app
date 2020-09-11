@@ -1,6 +1,6 @@
-export const ADD_TO_CART: string = 'ADD_TO_CART'
-export const REMOVE_FROM_CART: string = 'REMOVE_FROM_CART'
-export const SET_TOTAL: string = 'SET_TOTAL'
+export const ADD_TO_CART = 'ADD_TO_CART'
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+export const SET_TOTAL = 'SET_TOTAL'
 
 export interface RootState {
   totalCartItems: number
@@ -9,12 +9,16 @@ export interface RootState {
 export interface InitialState {
   totalPrice: number
   totalCartItems: number
-  cartItems: Array<string>
+  cartItems: Array<ICartItem>
 }
 
 export interface IProductItem {
   name: string
   price: number
+}
+
+export interface ICartItem extends IProductItem  {
+  units: number
 }
 
 export interface IAddToCartAction {
