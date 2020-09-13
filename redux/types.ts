@@ -3,6 +3,7 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const SET_TOTAL = 'SET_TOTAL'
 
 export interface RootState {
+  totalPrice: number
   cartItems: Array<ICartItem>
   totalCartItems: number
 }

@@ -1,4 +1,4 @@
-import { updateProduct, isProductAlreadyInCart, isMoreThanOneProductInCart, findProductIndex } from '../utils/helpers';
+import { updateProduct, isProductAlreadyInCart, isMoreThanOneProductInCart, findProductIndex, totalPrice, totalCartItems } from '../utils/helpers';
 import {
   InitialState,
   ActionTypes,
@@ -31,8 +31,13 @@ const reducer = (state = initialState, action: ActionTypes) => {
           : [...state.cartItems.filter(item => item.name !== action.payload.name)]
       };
     case SET_TOTAL:
+      return {...state, 
+        totalPrice: totalPrice(state.cartItems),
+        totalCartItems: totalCartItems(state.cartItems)
+      };
+    default:
+      return state;
   }
-  return state;
 };
 
 export default reducer;

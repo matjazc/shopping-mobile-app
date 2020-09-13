@@ -9,7 +9,7 @@ import { REMOVE_FROM_CART, SET_TOTAL, RootState, ICartItem } from '../redux/type
 
 export default function TabTwoScreen() {
   const cartItems = useSelector((state: RootState) => state.cartItems)
-  // const totalPrice = useSelector(state => state.totalPrice)
+  const totalPrice = useSelector((state: RootState) => state.totalPrice)
   const dispatch = useDispatch()
 
   const removeItemFromCart = function(item: ICartItem, index: number) {
@@ -17,16 +17,16 @@ export default function TabTwoScreen() {
       type: REMOVE_FROM_CART,
       payload: {...item, index}
     })
-    // dispatch({
-    //   type: SET_TOTAL
-    // })
+    dispatch({
+      type: SET_TOTAL
+    })
     }
 
   return (
     <View>
       {cartItems.length !== 0 ? (
         <View>
-        {/* <Text style={{color:'#000000', fontSize: 20}}>OVERALL TOTAL: {limitDecimal(totalPrice)} $</Text> */}
+        <Text style={{color:'#ffffff', fontSize: 20}}>OVERALL TOTAL: {limitDecimal(totalPrice)} $</Text>
     <ScrollView>
     {
       cartItems.map((item: ICartItem, index: number) => { 
