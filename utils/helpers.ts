@@ -15,10 +15,11 @@ export const updateProduct = (cart: Array<ICartItem>, product: IProductItem) => 
 
   const updatedProductData = {
     ...existingProduct,
-    price: existingProduct.price + product.price,
     units: ++existingProduct.units
   };
 
   cartItems[productIndex] = updatedProductData; 
   return cartItems;
 };
+
+export const limitDecimal = (number: number) => Number.parseFloat(number.toString()).toFixed(2);
