@@ -17,7 +17,7 @@ export default function TabOneScreen() {
 
   return (
     <View>
-      <Text style={{color:'#ffffff', fontSize: 20}}># of products in the cart: {cartItems}</Text>
+      <Text style={styles.cartProducts}># of products in the cart: {cartItems}</Text>
       <ScrollView>
       {
         products.map((item: IProductItem, index: number) => {
@@ -39,18 +39,8 @@ export default function TabOneScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
+  cartProducts: {
+    color: 'green',
+    fontSize: 20
+  }
 });

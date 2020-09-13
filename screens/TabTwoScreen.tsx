@@ -26,7 +26,7 @@ export default function TabTwoScreen() {
     <View>
       {cartItems.length !== 0 ? (
         <View>
-        <Text style={{color:'#ffffff', fontSize: 20}}>Overall total: $ {limitDecimal(totalPrice)}</Text>
+        <Text style={styles.cartProducts}>Overall total: $ {limitDecimal(totalPrice)}</Text>
     <ScrollView>
     {
       cartItems.map((item: ICartItem, index: number) => { 
@@ -56,18 +56,8 @@ export default function TabTwoScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
+  cartProducts: {
+    color: 'green',
+    fontSize: 20
+  }
 });
