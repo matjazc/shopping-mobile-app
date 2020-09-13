@@ -1,7 +1,7 @@
 import { ICartItem } from "../redux/types";
 
 export const isProductAlreadyInCart = (cart: Array<ICartItem>, name: string) => {
-  return findProductIndex(cart, name) >= 0 
+  return findProductIndex(cart, name) >= 0;
 }
 
 export const findProductIndex = (cart: Array<ICartItem>, name: string) => {
@@ -9,7 +9,7 @@ export const findProductIndex = (cart: Array<ICartItem>, name: string) => {
 };
 
 export const isMoreThanOneProductInCart = (cart: Array<ICartItem>, index: number) => {
-  return cart[index].units > 1
+  return cart[index].units > 1;
 }
 
 export const updateProduct = (cart: Array<ICartItem>, index: number, counterUpdate: number) => {

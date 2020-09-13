@@ -1,11 +1,18 @@
-import { updateProduct, isProductAlreadyInCart, isMoreThanOneProductInCart, findProductIndex, totalPrice, totalCartItems } from '../utils/helpers';
 import {
   InitialState,
   ActionTypes,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   SET_TOTAL,
-} from './types';
+} from "./types";
+import {
+  updateProduct,
+  isProductAlreadyInCart,
+  isMoreThanOneProductInCart,
+  findProductIndex,
+  totalPrice,
+  totalCartItems,
+} from "../utils/helpers";
 
 const initialState: InitialState = {
   totalPrice: 0,
