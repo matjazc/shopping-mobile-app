@@ -25,7 +25,7 @@ export default function TabOneScreen() {
           return (
             <Card key={index} >
               <Card.Title>{item.name}</Card.Title>
-              <Text>Price: {item.price} $</Text>
+              <Text>Price: $ {item.price}</Text>
               <Button
                 title="Add to Cart"
                 onPress={() => addItemToCart(item)}
