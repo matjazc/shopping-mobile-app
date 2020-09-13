@@ -1,15 +1,26 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { Text, View } from '../components/Themed';
+import { View } from '../components/Themed';
 import { ScrollView } from 'react-native-gesture-handler';
-import { Card } from 'react-native-elements';
+import { Card, Button, Text } from 'react-native-elements';
 import { useSelector, useDispatch } from 'react-redux';
 import { limitDecimal } from '../utils/helpers';
-import { RootState, ICartItem } from '../redux/types';
+import { REMOVE_FROM_CART, SET_TOTAL, RootState, ICartItem } from '../redux/types';
 
 export default function TabTwoScreen() {
   const cartItems = useSelector((state: RootState) => state.cartItems)
   // const totalPrice = useSelector(state => state.totalPrice)
+  const dispatch = useDispatch()
+
+  const removeItemFromCart = function(item: ICartItem, index: number) {
+    dispatch({
+      type: REMOVE_FROM_CART,
+      payload: {...item, index}
+    })
+    // dispatch({
+    //   type: SET_TOTAL
+    // })
+    }
 
   return (
     <View>
@@ -24,7 +35,11 @@ export default function TabTwoScreen() {
             <Card.Title>{item.name}</Card.Title>
             <Text>Price: $ {item.price}</Text> 
             <Text>Quantity: {item.units}</Text>
-            <Text>Total: $ {limitDecimal(item.units * item.price)}</Text> 
+            <Text>Total: $ {limitDecimal(item.units * item.price)}</Text>
+            <Button
+              title="Remove item"
+              onPress={() => removeItemFromCart(item, index)}
+            />
           </Card>
         );
       })
