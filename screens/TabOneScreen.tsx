@@ -9,7 +9,6 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 export default function TabOneScreen() {
   const cartItems = useSelector((state: RootState)  => state.totalCartItems)
-
   const dispatch = useDispatch()
   const addItemToCart = (item: IProductItem) => {
     dispatch({ type: ADD_TO_CART, payload: item })

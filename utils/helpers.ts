@@ -25,4 +25,22 @@ export const updateProduct = (cart: Array<ICartItem>, index: number, counterUpda
   return cartItems;
 };
 
+export const totalPrice = (cart: Array<ICartItem>) => {
+  if (cart.length > 0) {
+    const reducer = (accumulator: any, currentValue: any) => accumulator + currentValue;
+    const priceList = cart.map(item => item.units * item.price);
+    return priceList.reduce(reducer);
+  }
+  return 0;
+}
+
+export const totalCartItems = (cart: Array<ICartItem>) => {
+  if (cart.length > 0) {
+    const reducer = (accumulator: any, currentValue: any) => accumulator + currentValue;
+    const priceList = cart.map(item => item.units);
+    return priceList.reduce(reducer);
+  }
+  return 0;
+}
+
 export const limitDecimal = (number: number) => Number.parseFloat(number.toString()).toFixed(2);
