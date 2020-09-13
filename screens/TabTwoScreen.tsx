@@ -26,7 +26,7 @@ export default function TabTwoScreen() {
     <View>
       {cartItems.length !== 0 ? (
         <View>
-        <Text style={{color:'#ffffff', fontSize: 20}}>OVERALL TOTAL: {limitDecimal(totalPrice)} $</Text>
+        <Text style={{color:'#ffffff', fontSize: 20}}>Overall total: $ {limitDecimal(totalPrice)}</Text>
     <ScrollView>
     {
       cartItems.map((item: ICartItem, index: number) => { 
