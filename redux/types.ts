@@ -30,8 +30,10 @@ export interface IAddToCartAction {
 export interface IRemoveFromCartAction {
   type: typeof REMOVE_FROM_CART;
   payload: {
-    item: object
     index: number
+    name: string
+    price: number
+    units: number
   }
 }
 
