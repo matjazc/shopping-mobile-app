@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
-import { View } from "../components/Themed";
+import { View, Text as ThemedText } from "../components/Themed";
 import { ScrollView } from "react-native-gesture-handler";
 import { Card, Button, Text } from "react-native-elements";
 import { useSelector, useDispatch } from "react-redux";
@@ -31,9 +31,9 @@ export default function TabTwoScreen() {
     <View>
       {cartItems.length !== 0 ? (
         <View>
-          <Text style={styles.cartProducts}>
+          <ThemedText style={styles.cartProducts}>
             Overall total: $ {limitDecimal(totalPrice)}
-          </Text>
+          </ThemedText>
           <ScrollView>
             {cartItems.map((item: ICartItem, index: number) => {
               return (
@@ -64,7 +64,6 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   cartProducts: {
-    color: "green",
     fontSize: 20,
   },
 });

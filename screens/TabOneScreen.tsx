@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { products } from "../constants/products";
-import { View } from "../components/Themed";
+import { View, Text as ThemedText } from "../components/Themed";
 import { Card, Button, Text } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
 import {
@@ -22,9 +22,9 @@ export default function TabOneScreen() {
 
   return (
     <View>
-      <Text style={styles.cartProducts}>
+      <ThemedText style={styles.cartProducts}>
         # of products in the cart: {cartItems}
-      </Text>
+      </ThemedText>
       <ScrollView>
         {products.map((item: IProductItem, index: number) => {
           return (
@@ -42,7 +42,6 @@ export default function TabOneScreen() {
 
 const styles = StyleSheet.create({
   cartProducts: {
-    color: "green",
     fontSize: 20,
   },
 });
