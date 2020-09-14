@@ -10,8 +10,7 @@ import {
   isProductAlreadyInCart,
   isMoreThanOneProductInCart,
   findProductIndex,
-  totalPrice,
-  totalCartItems,
+  total,
 } from "../utils/helpers";
 
 const initialState: InitialState = {
@@ -37,11 +36,13 @@ const reducer = (state = initialState, action: ActionTypes) => {
           ? updateProduct(state.cartItems, action.payload.index, -1)
           : [...state.cartItems.filter(item => item.name !== action.payload.name)]
       };
-    case SET_TOTAL:
-      return {...state, 
-        totalPrice: totalPrice(state.cartItems),
-        totalCartItems: totalCartItems(state.cartItems)
-      };
+      case SET_TOTAL:
+        const { totalPrice, totalCartItems } = total(state.cartItems);
+        return {
+            ...state,
+            totalPrice,
+            totalCartItems
+        };
     default:
       return state;
   }
